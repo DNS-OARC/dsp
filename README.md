@@ -1,14 +1,53 @@
-# dsc
+# DNS Statistics Presenter
 
-Welcome to the DSC source code repository.
+DNS Statistics Presenter (DSP) is a tool used for exploring statistics from
+busy DNS servers collected by DNS Statistics Collector (DSC).
 
-DSC - DNS Stats Collector is a tool used for collecting and exploring statistics from busy DNS servers. It uses a distributed architecture with collectors running on or near nameservers sending their data to one or more central presenters for display and archiving. Collectors use pcap to sniff network traffic. They transmit aggregated data to the
-presenter as XML data.  More information about DSC may be found here:
+DSC can be found here:
+- https://github.com/DNS-OARC/dsc
 
-https://www.dns-oarc.net/tools/dsc
+More information about DSP/DSC may be found here:
+- https://www.dns-oarc.net/tools/dsc
+- https://www.dns-oarc.net/oarc/data/dsc
 
-Plus there's a FAQ:
+Issues should be reported here:
+- https://github.com/DNS-OARC/dsp/issues
 
-https://www.dns-oarc.net/oarc/data/dsc
+Mailinglist:
+- https://lists.dns-oarc.net/mailman/listinfo/dsc
 
-And of course mailing lists to join development discussions, which are linked from that page.
+# Install
+
+Following dependencies are needed, example for Debian/Ubuntu.
+
+```
+sudo apt-get update
+sudo apt-get install libcgi-untaint-perl libfile-flock-perl libfile-nfslock-perl libhash-merge-perl libmath-calc-units-perl libtext-template-perl libxml-simple-perl
+```
+
+Or you can install them all using `cpanm`.
+
+```
+cd perllib && cpanm --quiet --installdeps --notest .
+```
+
+The Perl module `IP::Country` is needed also which may not exist as a package
+for some distributions, you could install it manually.
+
+```
+cpanm --quiet --installdeps --notest IP::Country
+```
+
+If you are installing from the GitHub repository you need to generate configure.
+
+```
+./autogen.sh
+```
+
+Now you can compile with optinal options and install.
+
+```
+./configure [options ... ]
+make
+make install
+```
