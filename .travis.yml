@@ -10,4 +10,11 @@ before_install:
 install:
   - ./autogen.sh
   - ( cd perllib && cpanm --quiet --installdeps --notest . )
-script: ./configure && make
+script:
+  - ./configure
+  - make
+  - make dist
+  - tar zxvf *.tar.gz
+  - cd dsp-[0-9]*
+  - ./configure
+  - make
