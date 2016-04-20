@@ -34,7 +34,7 @@
 # ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-# script must be run from /usr/local/dsc/data/$server/$node directory
+# script must be run from DSC data server/node directory
 
 use warnings;
 use strict;

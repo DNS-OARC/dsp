@@ -3,7 +3,7 @@
 DNS Statistics Presenter (DSP) is a tool used for exploring statistics from
 busy DNS servers collected by DNS Statistics Collector (DSC).
 
-DSC can be found here:
+DNS Statistics Collector can be found here:
 - https://github.com/DNS-OARC/dsc
 
 More information about DSP/DSC may be found here:
@@ -21,7 +21,6 @@ Mailinglist:
 Following dependencies are needed, example for Debian/Ubuntu.
 
 ```
-sudo apt-get update
 sudo apt-get install libcgi-untaint-perl libfile-flock-perl libfile-nfslock-perl libhash-merge-perl libmath-calc-units-perl libtext-template-perl libxml-simple-perl
 ```
 
