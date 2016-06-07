@@ -46,21 +46,19 @@ AC_PATH_PROG([PERL],[perl])
 AX_PROG_PERL_VERSION([5.8.0], ,
     AC_MSG_ERROR(Need Perl))
 AX_PROG_PERL_MODULES([
-    CGI
-    CGI::Untaint
-    Digest::MD5
-    File::Flock
-    File::NFSLock
-    File::Temp
-    Hash::Merge
-    IP::Country
-    List::Util
-    MIME::Base64
-    Math::Calc::Units
-    Text::Template
-    URI::Escape
+    Cwd
+    DSC::extractor
+    DSC::extractor::config
+    Data::Dumper
+    Proc::PID::File
+    POSIX
     XML::Simple
-    Net::DNS::Resolver], ,
+    File::Copy
+    Digest::MD5
+    DSC::putfile
+    DSC::grapher
+    CGI
+    Getopt::Long], ,
     AC_MSG_ERROR(Need some Perl modules))
 
 # data dir
