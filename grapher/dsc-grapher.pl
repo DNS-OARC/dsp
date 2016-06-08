@@ -39,6 +39,11 @@ use warnings;
 use CGI;
 
 use DSC::grapher;
-my $grapher = DSC::grapher->new;
+my $grapher = DSC::grapher->new(
+# dataroot => 'path',
+# configfile => 'path',
+# cachepath => 'path',
+# htmlpath => 'path',
+);
 $grapher->cgi(new CGI);
 $grapher->run();

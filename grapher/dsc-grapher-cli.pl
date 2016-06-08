@@ -51,8 +51,17 @@ my $result = GetOptions (\%args,
 			"end=i",
 			"yaxis=s",
 			"key=s",
+			'configfile=s',
+			'dataroot=s',
+			'cachepath=s',
+			'htmlpath=s',
 			);
 
-my $grapher = DSC::grapher->new();
+my $grapher = DSC::grapher->new(
+    $args{dataroot} ? ( dataroot => $args{dataroot} ) : (),
+    $args{configfile} ? ( configfile => $args{configfile} ) : (),
+    $args{cachepath} ? ( cachepath => $args{cachepath} ) : (),
+    $args{htmlpath} ? ( htmlpath => $args{htmlpath} ) : (),
+);
 $grapher->cmdline(\%args);
 $grapher->run();
