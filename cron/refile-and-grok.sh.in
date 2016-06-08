@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 #
 # Copyright (c) 2016, OARC, Inc.
 # Copyright (c) 2007, The Measurement Factory, Inc.
@@ -34,17 +34,13 @@
 # ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-set -e
-
-cd /usr/local/dsc/data
+cd "@DSC_DATA_DIR"
 
 PROG=`basename $0`
 exec >$PROG.stdout
-#exec 2>&1
-#set -x
 date
 
-EXECDIR=/usr/local/dsc/libexec
+EXECDIR="$libexecdir"
 export EXECDIR SERVER NODE
 
 for SERVER in * ; do

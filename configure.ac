@@ -46,22 +46,38 @@ AC_PATH_PROG([PERL],[perl])
 AX_PROG_PERL_VERSION([5.8.0], ,
     AC_MSG_ERROR(Need Perl))
 AX_PROG_PERL_MODULES([
-    CGI
-    CGI::Untaint
-    Digest::MD5
-    File::Flock
-    File::NFSLock
-    File::Temp
-    Hash::Merge
-    IP::Country
-    List::Util
-    MIME::Base64
-    Math::Calc::Units
-    Text::Template
-    URI::Escape
+    Cwd
+    DSC::extractor
+    DSC::extractor::config
+    Data::Dumper
+    Proc::PID::File
+    POSIX
     XML::Simple
-    Net::DNS::Resolver], ,
+    File::Copy
+    Digest::MD5
+    DSC::putfile
+    DSC::grapher
+    CGI
+    Getopt::Long], ,
     AC_MSG_ERROR(Need some Perl modules))
+
+# data dir
+AC_ARG_WITH(data-dir,
+    [AS_HELP_STRING([--with-data-dir=DIR],
+        [use DIR for DSC data [LOCALSTATEDIR/lib/dsc]])],
+    [],
+    [with_data_dir=${localstatedir}/lib/dsc])
+
+AC_SUBST([DSC_DATA_DIR], [$with_data_dir])
+
+# cgi bin dir
+AC_ARG_WITH(cgi-bin-dir,
+    [AS_HELP_STRING([--with-cgi-bin-dir=DIR],
+        [use DIR for cgi-bin scripts [LIBDIR/cgi-bin]])],
+    [],
+    [with_cgi_bin_dir=${libdir}/cgi-bin])
+
+AC_SUBST([DSP_CGI_BIN_DIR], [$with_cgi_bin_dir])
 
 AC_CONFIG_FILES([
     Makefile

@@ -7,9 +7,12 @@ perl:
   - "5.14"
 before_install:
   - sudo apt-get -qq update
+  - sudo apt-get install -y git
+  - git clone https://github.com/DNS-OARC/p5-DSC.git
+  - ( cd p5-DSC && cpanm --quiet --notest . )
+  - cpanm --quiet --notest Proc::PID::File
 install:
   - ./autogen.sh
-  - ( cd perllib && cpanm --quiet --installdeps --notest . )
 script:
   - ./configure
   - make

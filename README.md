@@ -3,7 +3,7 @@
 DNS Statistics Presenter (DSP) is a tool used for exploring statistics from
 busy DNS servers collected by DNS Statistics Collector (DSC).
 
-DSC can be found here:
+DNS Statistics Collector can be found here:
 - https://github.com/DNS-OARC/dsc
 
 More information about DSP/DSC may be found here:
@@ -18,24 +18,27 @@ Mailinglist:
 
 # Install
 
-Following dependencies are needed, example for Debian/Ubuntu.
+Following dependencies are needed, example for Debian/Ubuntu. Check
+`./configure` for a full list of dependencies.
 
 ```
-sudo apt-get update
-sudo apt-get install libcgi-untaint-perl libfile-flock-perl libfile-nfslock-perl libhash-merge-perl libmath-calc-units-perl libtext-template-perl libxml-simple-perl
+sudo apt-get install libproc-pid-file-perl libxml-simple-perl
 ```
 
 Or you can install them all using `cpanm`.
 
 ```
-cd perllib && cpanm --quiet --installdeps --notest .
+cpanm --quiet --notest Proc::PID::File XML::Simple
 ```
 
-The Perl module `IP::Country` is needed also which may not exist as a package
-for some distributions, you could install it manually.
+The DSC Perl library needs to be installed also, if you can't find it in your
+distribution or on CPAN you can clone the repository, this example installs the
+latest development version using cpanminus.
 
 ```
-cpanm --quiet --installdeps --notest IP::Country
+git clone https://github.com/DNS-OARC/p5-DSC.git
+cd p5-DSC
+cpanm --quiet --notest .
 ```
 
 If you are installing from the GitHub repository you need to generate configure.
