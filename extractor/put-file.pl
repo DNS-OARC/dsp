@@ -38,5 +38,9 @@ use strict;
 use warnings;
 use DSC::putfile;
 
+# $DSC::putfile::debug =
+# $DSC::putfile::putlog =
+# $DSC::putfile::TOPDIR =
+
 DSC::putfile::run();
 exit 0;
