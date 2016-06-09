@@ -1,6 +1,6 @@
 MAINTAINERCLEANFILES = $(srcdir)/Makefile.in
 
-scriptdir = $(libexecdir)/dsp
+scriptdir = $(DSP_LIBEXEC_DIR)
 dist_script_SCRIPTS = dsc-xml-extractor.pl \
     fix-corrupted-dat-files.pl
 
