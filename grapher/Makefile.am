@@ -1,6 +1,8 @@
 MAINTAINERCLEANFILES = $(srcdir)/Makefile.in
 
-CLEANFILES = update-dat-file-locations.sh
+CLEANFILES = update-dat-file-locations.sh \
+    dsc-grapher-cli.pl \
+    dsc-grapher.pl
 
 scriptdir = $(DSP_LIBEXEC_DIR)
 script_SCRIPTS = dsc-grapher-cli.pl
