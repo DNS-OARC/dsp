@@ -79,6 +79,53 @@ AC_ARG_WITH(cgi-bin-dir,
 
 AC_SUBST([DSP_CGI_BIN_DIR], [$with_cgi_bin_dir])
 
+# html dir
+AC_ARG_WITH(html-dir,
+    [AS_HELP_STRING([--with-html-dir=DIR],
+        [use DIR for html content [DATAROOTDIR/dsp/html]])],
+    [],
+    [with_html_dir=${datarootdir}/dsp/html])
+
+AC_SUBST([DSP_HTML_DIR], [$with_html_dir])
+
+# etc dir
+AC_ARG_WITH(etc-dir,
+    [AS_HELP_STRING([--with-etc-dir=DIR],
+        [use DIR for configuration [SYSCONFDIR/dsp]])],
+    [],
+    [with_etc_dir=${sysconfdir}/dsp])
+
+AC_SUBST([DSP_ETC_DIR], [$with_etc_dir])
+
+# libexec dir
+AC_ARG_WITH(libexec-dir,
+    [AS_HELP_STRING([--with-libexec-dir=DIR],
+        [use DIR for library executables [LIBEXECDIR/dsp]])],
+    [],
+    [with_libexec_dir=${libexecdir}/dsp])
+
+AC_SUBST([DSP_LIBEXEC_DIR], [$with_libexec_dir])
+
+# create dirs
+AC_ARG_ENABLE(create-dirs,
+    [AS_HELP_STRING([--enable-create-dirs],
+        [create directories as pre 2.0.0 [PREFIX/(var/log|data|cache)]])],
+    [case "${enableval}" in
+        yes)
+            create_dirs=true
+            ;;
+        no)
+            create_dirs=false
+            ;;
+        *)
+            AC_MSG_ERROR(bad value ${enableval} for --enable-create-dirs)
+            ;;
+    esac],
+    [create_dirs=false])
+
+AM_CONDITIONAL([DSC_CREATE_DIRS], [test "x$create_dirs" = "xtrue"])
+
+# Create Makefiles
 AC_CONFIG_FILES([
     Makefile
     cron/Makefile

@@ -16,7 +16,7 @@ Issues should be reported here:
 Mailinglist:
 - https://lists.dns-oarc.net/mailman/listinfo/dsc
 
-# Install
+# Dependencies
 
 Following dependencies are needed, example for Debian/Ubuntu. Check
 `./configure` for a full list of dependencies.
@@ -41,13 +41,40 @@ cd p5-DSC
 cpanm --quiet --notest .
 ```
 
+# Prepare
+
 If you are installing from the GitHub repository you need to generate configure.
 
 ```
 ./autogen.sh
 ```
 
-Now you can compile with optinal options and install.
+# Install as pre 2.0.0
+
+As of version 2.0.0 most of the paths has been changed and if your
+upgrading an older installation and want to keep the paths as they were
+this is how you can do it.
+
+Asuming the old prefix of `/usr/local/dsc`, see `configure --help` for more
+information.
+
+```
+prefix=/usr/local/dsc
+./configure --prefix=$prefix \
+    --with-data-dir=$prefix/data \
+    --with-cgi-bin-dir=$prefix/libexec \
+    --with-html-dir=$prefix/share/html \
+    --with-etc-dir=$prefix/etc \
+    --with-libexec-dir=$prefix/libexec \
+    --enable-create-dirs
+make
+make install
+```
+
+# Install
+
+Run `configure` with optional options and then install, see `configure --help`
+for more information.
 
 ```
 ./configure [options ... ]

@@ -18,7 +18,5 @@ depcomp
 install-sh
 missing
 test-driver
-perllib/MYMETA.json
-perllib/MYMETA.yml
-perllib/blib
-perllib/pm_to_blib
+cron/refile-and-grok.sh
+grapher/update-dat-file-locations.sh

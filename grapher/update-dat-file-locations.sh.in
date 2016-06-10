@@ -36,7 +36,7 @@
 
 set -e
 
-cd "@DSC_DATA_DIR"
+cd "@DSC_DATA_DIR@"
 for SERVER in *; do
 	test -d $SERVER || continue
 	echo "Server $SERVER..."

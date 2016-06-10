@@ -2,16 +2,16 @@ MAINTAINERCLEANFILES = $(srcdir)/Makefile.in
 
 CLEANFILES = update-dat-file-locations.sh
 
-scriptdir = $(libexecdir)/dsp
+scriptdir = $(DSP_LIBEXEC_DIR)
 dist_script_SCRIPTS = dsc-grapher-cli.pl
 
 cgibindir = $(DSP_CGI_BIN_DIR)
 dist_cgibin_SCRIPTS = dsc-grapher.pl
 
-etcdir = $(sysconfdir)/dsp
+etcdir = $(DSP_ETC_DIR)
 dist_etc_DATA = dsc-grapher.cfg.sample
 
-htmldir = $(datadir)/dsp/html
+htmldir = $(DSP_HTML_DIR)
 dist_html_DATA = plot.page \
     icons/1downarrow.png \
     icons/1leftarrow.png \
