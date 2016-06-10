@@ -66,6 +66,8 @@ prefix=/usr/local/dsc
     --with-html-dir=$prefix/share/html \
     --with-etc-dir=$prefix/etc \
     --with-libexec-dir=$prefix/libexec \
+    --with-cache-dir=$prefix/cache \
+    --with-log-dir=$prefix/var/log \
     --enable-create-dirs
 make
 make install
@@ -81,3 +83,6 @@ for more information.
 make
 make install
 ```
+
+You can use `--enable-create-dirs` to create the necessary directories upon
+installation.

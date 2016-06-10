@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!/usr/bin/env perl
 #
 # Copyright (c) 2016, OARC, Inc.
 # Copyright (c) 2007, The Measurement Factory, Inc.
@@ -36,32 +36,11 @@
 
 use strict;
 use warnings;
-use Getopt::Long;
-use DSC::grapher;
+use DSC::putfile;
 
-our $ploticus_debug=1;
+# $DSC::putfile::debug =
+$DSC::putfile::putlog = '@DSP_LOG_DIR@/put-file.log';
+$DSC::putfile::TOPDIR = '@DSC_DATA_DIR@';
 
-my %args;
-my $result = GetOptions (\%args,
-			"server=s",
-			"node=s",
-			"window=s",
-			"binsize=i",
-			"plot=s",
-			"end=i",
-			"yaxis=s",
-			"key=s",
-			'configfile=s',
-			'dataroot=s',
-			'cachepath=s',
-			'htmlpath=s',
-			);
-
-my $grapher = DSC::grapher->new(
-    $args{dataroot} ? ( dataroot => $args{dataroot} ) : (),
-    $args{configfile} ? ( configfile => $args{configfile} ) : (),
-    $args{cachepath} ? ( cachepath => $args{cachepath} ) : (),
-    $args{htmlpath} ? ( htmlpath => $args{htmlpath} ) : (),
-);
-$grapher->cmdline(\%args);
-$grapher->run();
+DSC::putfile::run();
+exit 0;

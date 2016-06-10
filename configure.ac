@@ -35,7 +35,7 @@
 AC_PREREQ(2.61)
 AC_INIT([DSP], [2.0.0], [dsc@dns-oarc.net], [dsp], [https://github.com/DNS-OARC/dsp/issues])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
-AC_CONFIG_SRCDIR([grapher/dsc-grapher-cli.pl])
+AC_CONFIG_SRCDIR([grapher/dsc-grapher.pl.in])
 AC_CONFIG_MACRO_DIR([m4])
 
 # Checks for programs.
@@ -106,10 +106,28 @@ AC_ARG_WITH(libexec-dir,
 
 AC_SUBST([DSP_LIBEXEC_DIR], [$with_libexec_dir])
 
+# cache dir
+AC_ARG_WITH(cache-dir,
+    [AS_HELP_STRING([--with-cache-dir=DIR],
+        [use DIR for cache [LOCALSTATEDIR/cache/dsp]])],
+    [],
+    [with_cache_dir=${localstatedir}/cache/dsp])
+
+AC_SUBST([DSP_CACHE_DIR], [$with_cache_dir])
+
+# log dir
+AC_ARG_WITH(log-dir,
+    [AS_HELP_STRING([--with-log-dir=DIR],
+        [use DIR for logs [LOCALSTATEDIR/log/dsp]])],
+    [],
+    [with_cache_dir=${localstatedir}/log/dsp])
+
+AC_SUBST([DSP_LOG_DIR], [$with_log_dir])
+
 # create dirs
 AC_ARG_ENABLE(create-dirs,
     [AS_HELP_STRING([--enable-create-dirs],
-        [create directories as pre 2.0.0 [PREFIX/(var/log|data|cache)]])],
+        [create data, cache and log directories on installation])],
     [case "${enableval}" in
         yes)
             create_dirs=true

@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 #
 # Copyright (c) 2016, OARC, Inc.
 # Copyright (c) 2007, The Measurement Factory, Inc.
