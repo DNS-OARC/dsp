@@ -120,7 +120,7 @@ AC_ARG_WITH(log-dir,
     [AS_HELP_STRING([--with-log-dir=DIR],
         [use DIR for logs [LOCALSTATEDIR/log/dsp]])],
     [],
-    [with_cache_dir=${localstatedir}/log/dsp])
+    [with_log_dir=${localstatedir}/log/dsp])
 
 AC_SUBST([DSP_LOG_DIR], [$with_log_dir])
 
