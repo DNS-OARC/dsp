@@ -1,3 +1,50 @@
+2016-06-10 Jerry Lundström
+
+    Release 2.0.0
+
+    This is a major release in a sense but almost no code have been
+    changed. The Presenter can now be configured and installed with
+    configure, see configure --help for more information and README.md
+    if you have an existing installation and wish to continue to use
+    the old paths.
+
+    Major changes:
+    - Restructure repository to only contain the Presenter for DSC.
+    - Use of Automake and rework of the Makefiles
+    - Moved the Perl library into it's own repository p5-DSC.
+    - Make all paths configurable via configure and use defaults more in
+      line with FHS 3.0.
+    - Continuous Integration testing using Travis-CI and Jenkins
+    - Testing on Ubuntu, Debian, CentOS, FreeBSD and OpenBSD
+
+    Path Changes
+
+    The following paths have been changed, $old is considered /usr/local/dsc
+    and the new uses configure path, see configure --help for a full list
+    of these paths and their default.
+
+    $old/cache/     => $localstatedir/cache/dsp/
+    $old/data/      => $localstatedir/lib/dsc/
+    $old/etc/       => $etcdir/dsp/
+    $old/libexec/   => $libdir/cgi-bin/ (CGI bins only)
+    $old/libexec/   => $libexecdir/dsp/
+    $old/share/html => $datarootdir/dsp/html/
+    $old/var/log    => $localstatedir/log/dsp/
+
+    Commits:
+
+    4d1a049 Fix typos and add missing cleanup
+    3865520 Generate files and create dirs
+    42de74e Add configure options to be able to install as it were pre
+            version 2.0.0. Fix typos in .in files.
+    594049d Use new options when available
+    20b1b15 Move Perl library to separate repository.
+    340cc09 Fix #3: Try and be more FHS.
+    b1c19bc Fix #1: Add missing changes for master branch
+    3ed63f0 Check make dist in Travis
+    f22ad56 Reconstruct repository to not include collector. Use
+            automake/autoconf. Update licenses.
+
 2016-01-11 Duane Wessels
 
     added dfprintf() macro to improve code readability and avoid
