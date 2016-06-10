@@ -1,0 +1,23 @@
+language: perl
+perl:
+  - "5.22"
+  - "5.20"
+  - "5.18"
+  - "5.16"
+  - "5.14"
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y git
+  - git clone https://github.com/DNS-OARC/p5-DSC.git
+  - ( cd p5-DSC && cpanm --quiet --notest . )
+  - cpanm --quiet --notest Proc::PID::File
+install:
+  - ./autogen.sh
+script:
+  - ./configure
+  - make
+  - make dist
+  - tar zxvf *.tar.gz
+  - cd dsp-[0-9]*
+  - ./configure
+  - make
