@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!/usr/bin/env perl
 #
 # Copyright (c) 2016, OARC, Inc.
 # Copyright (c) 2007, The Measurement Factory, Inc.
@@ -22,7 +22,7 @@
 #    from this software without specific prior written permission.
 #
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+# 'AS IS' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
 # LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
 # FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
 # COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
@@ -36,14 +36,32 @@
 
 use strict;
 use warnings;
-use CGI;
-
+use Getopt::Long;
 use DSC::grapher;
-my $grapher = DSC::grapher->new(
-# dataroot => 'path',
-# configfile => 'path',
-# cachepath => 'path',
-# htmlpath => 'path',
+
+our $ploticus_debug=1;
+
+my %args;
+my $result = GetOptions (\%args,
+    'server=s',
+    'node=s',
+    'window=s',
+    'binsize=i',
+    'plot=s',
+    'end=i',
+    'yaxis=s',
+    'key=s',
+    'configfile=s',
+    'dataroot=s',
+    'cachepath=s',
+    'htmlpath=s',
 );
-$grapher->cgi(new CGI);
+
+my $grapher = DSC::grapher->new(
+    dataroot => $args{dataroot} ? $args{dataroot} : '@DSC_DATA_DIR@',
+    configfile => $args{configfile} ? $args{configfile} : '@DSP_ETC_DIR@/dsc-grapher.cfg',
+    cachepath => $args{cachepath} ? $args{cachepath} : '@DSP_CACHE_DIR@',
+    htmlpath => $args{htmlpath} ? $args{htmlpath} : '@DSP_HTML_DIR@',
+);
+$grapher->cmdline(\%args);
 $grapher->run();

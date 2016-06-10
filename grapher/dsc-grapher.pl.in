@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!/usr/bin/env perl
 #
 # Copyright (c) 2016, OARC, Inc.
 # Copyright (c) 2007, The Measurement Factory, Inc.
@@ -36,11 +36,14 @@
 
 use strict;
 use warnings;
-use DSC::putfile;
+use CGI;
 
-# $DSC::putfile::debug =
-# $DSC::putfile::putlog =
-# $DSC::putfile::TOPDIR =
-
-DSC::putfile::run();
-exit 0;
+use DSC::grapher;
+my $grapher = DSC::grapher->new(
+    dataroot => '@DSC_DATA_DIR@',
+    configfile => '@DSP_ETC_DIR@/dsc-grapher.cfg',
+    cachepath => '@DSP_CACHE_DIR@',
+    htmlpath => '@DSP_HTML_DIR@',
+);
+$grapher->cgi(new CGI);
+$grapher->run();
