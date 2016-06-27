@@ -23,3 +23,4 @@ grapher/update-dat-file-locations.sh
 extractor/put-file.pl
 grapher/dsc-grapher-cli.pl
 grapher/dsc-grapher.pl
+.pc

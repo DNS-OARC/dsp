@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	./autogen.sh
+	dh_auto_configure \
+	    -- \
+	    --with-cgi-bin-dir=/usr/lib/cgi-bin/dsp \
+	    --with-libexec-dir=/usr/lib/dsp

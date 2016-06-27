@@ -1,0 +1,19 @@
+Source: dsp
+Section: net
+Priority: optional
+Maintainer: Jerry Lundström <lundstrom.jerry@gmail.com>
+Build-Depends: debhelper (>= 8.0.0), build-essential, automake, autoconf,
+ libproc-pid-file-perl, libxml-simple-perl, libdsc-perl, libcgi-pm-perl
+Standards-Version: 3.9.4
+Homepage: https://www.dns-oarc.net/oarc/data/dsp
+Vcs-Git: https://github.com/DNS-OARC/dsp.git
+Vcs-Browser: https://github.com/DNS-OARC/dsp
+
+Package: dsp
+Architecture: all
+Conflicts: dsc-statistics-presenter
+Depends: ${perl:Depends}, ${misc:Depends}, libproc-pid-file-perl,
+ libxml-simple-perl, libdsc-perl, libcgi-pm-perl
+Description: DNS Statistics Presenter
+ DNS Statistics Presenter (DSP) is a tool used for exploring statistics from
+ busy DNS servers collected by DNS Statistics Collector (DSC).
