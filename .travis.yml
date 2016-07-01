@@ -18,6 +18,7 @@ script:
   - make
   - make dist
   - tar zxvf *.tar.gz
-  - cd dsp-[0-9]*
+  - cd dsp-*[0-9]
   - ./configure
   - make
+  - make test
