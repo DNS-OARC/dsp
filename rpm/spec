@@ -1,0 +1,71 @@
+Name:           dsp
+Version:        2.0.0
+Release:        1%{?dist}
+Summary:        DNS Statistics Presenter
+
+License:        BSD-3-Clause
+URL:            https://www.dns-oarc.net/oarc/data/dsc
+# Using same naming as to build debs, get the source (and rename it) at
+# https://www.dns-oarc.net/dsc/download and change %setup
+Source0:        %{name}_%{version}.orig.tar.gz
+
+BuildArch:      noarch
+
+BuildRequires:  libpcap-devel
+BuildRequires:  perl
+BuildRequires:  perl(Proc::PID::File)
+BuildRequires:  perl(XML::Simple)
+BuildRequires:  perl(DSC)
+BuildRequires:  perl(CGI)
+BuildRequires:  autoconf
+BuildRequires:  automake
+BuildRequires:  libtool
+Requires:       perl
+Requires:       perl(Proc::PID::File)
+Requires:       perl(XML::Simple)
+Requires:       perl(DSC)
+Requires:       perl(CGI)
+
+%description
+DNS Statistics Presenter (DSP) is a tool used for exploring statistics from
+busy DNS servers collected by DNS Statistics Collector (DSC).
+
+%prep
+%setup -q -n %{name}_%{version}
+
+
+%build
+sh autogen.sh
+%if 0%{?suse_version} > 0
+%configure --with-cgi-bin-dir=/usr/lib/cgi-bin
+%else
+%configure
+%endif
+make %{?_smp_mflags}
+
+
+%install
+rm -rf $RPM_BUILD_ROOT
+make install DESTDIR=$RPM_BUILD_ROOT
+
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+
+%files
+%defattr(-,root,root)
+%config %{_sysconfdir}/*
+%if 0%{?suse_version} > 0
+/usr/lib/cgi-bin
+%else
+%{_libdir}/cgi-bin
+%endif
+%{_libexecdir}/dsp
+%{_datadir}/doc/*
+%{_datadir}/dsp
+
+
+%changelog
+* Thu Dec 15 2016 Jerry Lundström <lundstrom.jerry@gmail.com> 2.0.0-1
+- Initial package

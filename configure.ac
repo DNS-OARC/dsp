@@ -43,8 +43,7 @@ AC_PROG_INSTALL
 AC_PATH_PROG([PERL],[perl])
 
 # Checks for Perl version and modules
-AX_PROG_PERL_VERSION([5.8.0], ,
-    AC_MSG_ERROR(Need Perl))
+AX_PROG_PERL_VERSION([5.8.0], [], [AC_MSG_ERROR(Need Perl)])
 AX_PROG_PERL_MODULES([
     Cwd
     DSC::extractor
@@ -58,8 +57,8 @@ AX_PROG_PERL_MODULES([
     DSC::putfile
     DSC::grapher
     CGI
-    Getopt::Long], ,
-    AC_MSG_ERROR(Need some Perl modules))
+    Getopt::Long], [],
+    [AC_MSG_ERROR(Need some Perl modules)])
 
 # data dir
 AC_ARG_WITH(data-dir,
