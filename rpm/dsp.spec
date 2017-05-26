@@ -2,6 +2,7 @@ Name:           dsp
 Version:        2.0.0
 Release:        1%{?dist}
 Summary:        DNS Statistics Presenter
+Group:          Productivity/Networking/DNS/Utilities
 
 License:        BSD-3-Clause
 URL:            https://www.dns-oarc.net/oarc/data/dsc
