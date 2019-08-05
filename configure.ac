@@ -1,4 +1,4 @@
-# Copyright (c) 2016, OARC, Inc.
+# Copyright (c) 2016-2019, OARC, Inc.
 # Copyright (c) 2007, The Measurement Factory, Inc.
 # Copyright (c) 2007, Internet Systems Consortium, Inc.
 # All rights reserved.
@@ -33,7 +33,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 AC_PREREQ(2.61)
-AC_INIT([DSP], [2.0.0], [dsc@dns-oarc.net], [dsp], [https://github.com/DNS-OARC/dsp/issues])
+AC_INIT([DSP], [2.0.1], [dsc@dns-oarc.net], [dsp], [https://github.com/DNS-OARC/dsp/issues])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 AC_CONFIG_SRCDIR([grapher/dsc-grapher.pl.in])
 AC_CONFIG_MACRO_DIR([m4])
@@ -43,8 +43,7 @@ AC_PROG_INSTALL
 AC_PATH_PROG([PERL],[perl])
 
 # Checks for Perl version and modules
-AX_PROG_PERL_VERSION([5.8.0], ,
-    AC_MSG_ERROR(Need Perl))
+AX_PROG_PERL_VERSION([5.8.0], [], [AC_MSG_ERROR(Need Perl)])
 AX_PROG_PERL_MODULES([
     Cwd
     DSC::extractor
@@ -58,8 +57,8 @@ AX_PROG_PERL_MODULES([
     DSC::putfile
     DSC::grapher
     CGI
-    Getopt::Long], ,
-    AC_MSG_ERROR(Need some Perl modules))
+    Getopt::Long], [],
+    [AC_MSG_ERROR(Need some Perl modules)])
 
 # data dir
 AC_ARG_WITH(data-dir,

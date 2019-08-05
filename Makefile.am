@@ -1,3 +1,5 @@
+ACLOCAL_AMFLAGS = -I m4
+
 MAINTAINERCLEANFILES = $(srcdir)/Makefile.in
 
 SUBDIRS = cron extractor grapher
@@ -8,9 +10,9 @@ EXTRA_DIST = certs doc m4 autogen.sh
 
 if DSC_CREATE_DIRS
 install-data-local:
-	mkdir -p "$(DSP_LOG_DIR)" \
-      "$(DSC_DATA_DIR)" \
-      "$(DSP_CACHE_DIR)"
+	mkdir -p "$(DESTDIR)$(DSP_LOG_DIR)" \
+      "$(DESTDIR)$(DSC_DATA_DIR)" \
+      "$(DESTDIR)$(DSP_CACHE_DIR)"
 endif
 
 test:
