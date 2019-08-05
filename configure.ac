@@ -1,4 +1,4 @@
-# Copyright (c) 2016, OARC, Inc.
+# Copyright (c) 2016-2019, OARC, Inc.
 # Copyright (c) 2007, The Measurement Factory, Inc.
 # Copyright (c) 2007, Internet Systems Consortium, Inc.
 # All rights reserved.
@@ -33,7 +33,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 AC_PREREQ(2.61)
-AC_INIT([DSP], [2.0.0], [dsc@dns-oarc.net], [dsp], [https://github.com/DNS-OARC/dsp/issues])
+AC_INIT([DSP], [2.0.1], [dsc@dns-oarc.net], [dsp], [https://github.com/DNS-OARC/dsp/issues])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 AC_CONFIG_SRCDIR([grapher/dsc-grapher.pl.in])
 AC_CONFIG_MACRO_DIR([m4])

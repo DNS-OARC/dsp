@@ -1,5 +1,5 @@
 Name:           dsp
-Version:        2.0.0
+Version:        2.0.1
 Release:        1%{?dist}
 Summary:        DNS Statistics Presenter
 Group:          Productivity/Networking/DNS/Utilities
@@ -67,5 +67,21 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Aug 05 2019 Jerry Lundström <lundstrom.jerry@gmail.com> 2.0.1-1
+- Release 2.0.1
+  * Minor fixes to Automake/Autoconf files, such as:
+    - Fix #17: add DESTDIR
+    - `autoreconf` include fix
+    - `configure` Perl program check
+    - Update m4 scripts to latest version
+  * Commits:
+    cb5b223 Package
+    b7ef042 Funding
+    44f0f9f Prepare SPEC for OSB/COPR
+    e5d8987 RPM spec and various automake fixes
+    d42557b Fix #17: add DESTDIR
+    3358d7f Add Travis-CI build status
+    f839d0f Fix travis script, only expand dir and test.
+    52b5ca3 Add debian/ubuntu package files
 * Thu Dec 15 2016 Jerry Lundström <lundstrom.jerry@gmail.com> 2.0.0-1
 - Initial package

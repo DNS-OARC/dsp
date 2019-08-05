@@ -1,3 +1,22 @@
+2019-08-05 Jerry Lundström
+
+    Release 2.0.1
+
+    Minor fixes to Automake/Autoconf files, such as:
+    - Fix #17: add DESTDIR
+    - `autoreconf` include fix
+    - `configure` Perl program check
+    - Update m4 scripts to latest version
+
+    cb5b223 Package
+    b7ef042 Funding
+    44f0f9f Prepare SPEC for OSB/COPR
+    e5d8987 RPM spec and various automake fixes
+    d42557b Fix #17: add DESTDIR
+    3358d7f Add Travis-CI build status
+    f839d0f Fix travis script, only expand dir and test.
+    52b5ca3 Add debian/ubuntu package files
+
 2016-06-10 Jerry Lundström
 
     Release 2.0.0
