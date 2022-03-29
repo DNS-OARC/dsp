@@ -1,3 +1,5 @@
+## DISCONTINUED: This project has been discontinued and will not receive any future updates or bug fixes.
+
 # DNS Statistics Presenter
 
 DNS Statistics Presenter (DSP) is a tool used for exploring statistics from
