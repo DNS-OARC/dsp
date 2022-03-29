@@ -1,6 +1,6 @@
-# DNS Statistics Presenter
+## DISCONTINUED: This project has been discontinued and will not receive any future updates or bug fixes.
 
-[![Build Status](https://travis-ci.org/DNS-OARC/dsp.svg?branch=develop)](https://travis-ci.org/DNS-OARC/dsp)
+# DNS Statistics Presenter
 
 DNS Statistics Presenter (DSP) is a tool used for exploring statistics from
 busy DNS servers collected by DNS Statistics Collector (DSC).
